@@ -31,6 +31,7 @@ body{margin:0}
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{
   background:var(--ink);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.6;
@@ -159,6 +160,24 @@ section{padding-block:72px 8px;scroll-margin-top:84px}
 .tier ul{list-style:none;margin:0;padding:14px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;font-size:15px;flex:1}
 .tier li{display:flex;gap:10px;align-items:flex-start}
 .tier li::before{content:"";flex:none;width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--gold)}
+
+.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;opacity:0}
+.avg{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 16px;border-radius:18px;background:rgba(227,178,90,.1);border:1px solid rgba(247,220,146,.28)}
+.avg b{font-family:var(--f-display);font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.avg .st{color:var(--gold-hi);letter-spacing:3px;font-size:18px}
+.avg small{color:var(--muted);font-size:13px}
+.rlist{display:grid;gap:12px;max-height:560px;overflow-y:auto;padding-right:4px}
+.rev{padding:16px 18px;border-radius:20px;border:1px solid var(--line);background:rgba(0,0,0,.22);display:grid;gap:8px;animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.rev .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.rev .who{font-weight:600}
+.rev .who small{display:block;color:var(--muted);font-weight:400;font-size:12.5px}
+.rev .st{color:var(--gold-hi);letter-spacing:2px;white-space:nowrap}
+.rev p{font-size:15px;color:rgba(247,239,226,.9);overflow-wrap:anywhere}
+.status{font-size:14.5px;padding:12px 14px;border-radius:14px;border:1px solid var(--line)}
+.status.ok{background:rgba(227,178,90,.14);border-color:rgba(247,220,146,.4)}
+.status.err{background:rgba(194,56,93,.16);border-color:rgba(255,140,170,.4)}
+.btn[disabled]{opacity:.6;cursor:progress}
+.btn svg{width:18px;height:18px;fill:currentColor;flex:none}
 .note{margin-top:18px;color:var(--muted);font-size:14px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;counter-reset:s}
 .step{padding:20px;display:flex;flex-direction:column;gap:8px;counter-increment:s}
@@ -307,7 +326,7 @@ footer .brand b{color:var(--text)}
         <h1 data-i="hero_h">Every celebration deserves a grand setting.</h1>
         <p data-i="hero_p">Tents, mandaps, lighting and floral décor for weddings, receptions and every family function.</p>
         <div class="hero-cta">
-          <a class="btn gold" href="#contact" data-i="cta_quote">Get a free quote</a>
+          <a class="btn gold" href="#contact" data-i="cta_book">Book now</a>
           <a class="btn" href="#explore" data-i="cta_watch">Watch our work</a>
         </div>
       </div>
@@ -435,6 +454,8 @@ footer .brand b{color:var(--text)}
     <div class="two">
       <div class="panel glass rv">
         <h3 data-i="r_list">Customer reviews</h3>
+        <div class="avg" id="revAvg" hidden><b id="avgN">5.0</b><span class="st" id="avgS" aria-hidden="true">★★★★★</span><small id="avgC"></small></div>
+        <div class="rlist" id="revList" aria-live="polite"></div>
         <div class="empty" id="revEmpty">
           <b data-i="r_empty_h">No reviews yet</b>
           <span data-i="r_empty_p">Reviews from our customers will appear here. Be the first to share your experience.</span>
@@ -443,8 +464,9 @@ footer .brand b{color:var(--text)}
       <div class="panel glass rv">
         <h3 data-i="r_form">Share your feedback</h3>
         <form id="revForm" novalidate>
+          <div class="hp" aria-hidden="true"><label for="rvWeb">Website</label><input type="text" id="rvWeb" tabindex="-1" autocomplete="off"></div>
           <div class="row2">
-            <div class="field"><label for="rvName" data-i="f_name">Your name</label><input type="text" id="rvName" autocomplete="name" placeholder="Name"></div>
+            <div class="field"><label for="rvName" data-i="f_name">Your name</label><input type="text" id="rvName" autocomplete="name" maxlength="60" placeholder="Name"></div>
             <div class="field"><label for="rvEvent" data-i="f_event">Event</label>
               <select id="rvEvent"><option value="Wedding" data-i="o_wed">Wedding</option><option value="Reception" data-i="o_rec">Reception</option><option value="Engagement" data-i="o_eng">Engagement / Tilak</option><option value="Birthday" data-i="o_bday">Birthday</option><option value="Religious function" data-i="o_rel">Religious function</option><option value="Other" data-i="o_oth">Other</option></select>
             </div>
@@ -459,12 +481,9 @@ footer .brand b{color:var(--text)}
               <input type="radio" name="rate" id="s1" value="1"><label for="s1" title="1">★</label>
             </div>
           </fieldset>
-          <div class="field"><label for="rvMsg" data-i="f_msg">Your experience</label><textarea id="rvMsg" data-i-ph="ph_rv" placeholder="How was the setup, the team and the timing?"></textarea></div>
-          <button class="btn gold" type="submit" data-i="r_btn">Prepare my review</button>
-          <div class="sent" id="rvSent" hidden>
-            <span data-i="r_ready">Your review is ready. Tap to send it to us on WhatsApp.</span>
-            <a class="btn" id="rvLink" href="#" target="_blank" rel="noopener" data-i="wa_send">Send on WhatsApp</a>
-          </div>
+          <div class="field"><label for="rvMsg" data-i="f_msg">Your experience</label><textarea id="rvMsg" maxlength="600" data-i-ph="ph_rv" placeholder="How was the setup, the team and the timing?"></textarea></div>
+          <button class="btn gold" type="submit" id="rvBtn" data-i="r_submit">Submit review</button>
+          <div class="status" id="rvStatus" role="status" hidden></div>
         </form>
       </div>
     </div>
@@ -494,11 +513,8 @@ footer .brand b{color:var(--text)}
             <div class="field"><label for="eqPlace" data-i="f_place">Venue / village</label><input type="text" id="eqPlace" placeholder="Kasya"></div>
           </div>
           <div class="field"><label for="eqMsg" data-i="f_more">Anything else</label><textarea id="eqMsg" data-i-ph="ph_eq" placeholder="Colours, theme, stage, lighting..."></textarea></div>
-          <button class="btn gold" type="submit" data-i="e_btn">Prepare my enquiry</button>
-          <div class="sent" id="eqSent" hidden>
-            <span data-i="e_ready">Your enquiry is ready. Tap to send it to us on WhatsApp.</span>
-            <a class="btn" id="eqLink" href="#" target="_blank" rel="noopener" data-i="wa_send">Send on WhatsApp</a>
-          </div>
+          <button class="btn gold" type="submit" id="eqBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.1L2 22l5-1.6A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 0 1 0 16.2c-1.4 0-2.7-.4-3.9-1l-.3-.2-2.9.9.9-2.8-.2-.3a8.1 8.1 0 0 1 6.4-12.8zM8.6 7.4c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4.9 2.9.7 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4l-1.9-.9c-.3-.1-.5-.1-.7.1l-.9 1.1c-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5z"/></svg><span data-i="wa_send">Send on WhatsApp</span></button>
+          <div class="status err" id="eqErr" role="alert" hidden></div>
         </form>
       </div>
       <div class="panel glass rv">
@@ -542,12 +558,14 @@ footer .brand b{color:var(--text)}
 <script>
 (function(){
   var WA='919517166392';
+  /* Paste your Google Apps Script web app URL between the quotes to switch live reviews on */
+  var REVIEWS_API='';
   var T={
     en:{},
     hi:{
       brand_sub:'कसया · कुशीनगर',nav_explore:'देखें',nav_services:'सेवाएँ',nav_gallery:'गैलरी',nav_packages:'पैकेज',nav_reviews:'समीक्षाएँ',nav_contact:'संपर्क',call:'अभी कॉल करें',
       hero_eyebrow:'टेंट हाउस · कसया, कुशीनगर',hero_h:'हर उत्सव के लिए एक भव्य सजावट।',hero_p:'शादी, रिसेप्शन और हर पारिवारिक समारोह के लिए टेंट, मंडप, लाइटिंग और फूलों की सजावट।',
-      cta_quote:'मुफ़्त कोटेशन पाएँ',cta_watch:'हमारा काम देखें',hc_price:'पैकेज',hc_where:'पता',hc_addr:'देवरिया रोड, कसया, कुशीनगर',hc_founder:'संस्थापक',
+      cta_book:'अभी बुक करें',cta_watch:'हमारा काम देखें',hc_price:'पैकेज',hc_where:'पता',hc_addr:'देवरिया रोड, कसया, कुशीनगर',hc_founder:'संस्थापक',
       ex_eyebrow:'देखें',ex_h:'बुक करने से पहले सजावट देखें',ex_p:'हमारी अपनी सजावट से बनी छोटी फ़िल्में। चलाने या रोकने के लिए फ़िल्म पर टैप करें।',
       v1:'पूरी झलक',v2:'प्रवेश द्वार',v3:'छत और शामियाना',v4:'रोशन शामें',
       sv_eyebrow:'सेवाएँ',sv_h:'सब कुछ एक ही छत के नीचे',sv_p:'टेंट, स्टेज, लाइट और फूल, सब एक ही टीम से, ताकि आपका समारोह एक साथ तैयार हो जाए।',
@@ -571,6 +589,7 @@ footer .brand b{color:var(--text)}
       o_wed:'शादी',o_rec:'रिसेप्शन',o_eng:'सगाई / तिलक',o_bday:'जन्मदिन',o_rel:'धार्मिक आयोजन',o_oth:'अन्य',
       c_eyebrow:'संपर्क',c_h:'अपना समारोह हमारे साथ तय करें',c_p:'जानकारी भरकर WhatsApp पर भेजें, या सीधे हमें कॉल करें।',
       f_phone:'फ़ोन',f_date:'समारोह की तारीख',f_guests:'मेहमान (लगभग)',f_place:'जगह / गाँव',f_more:'कुछ और',ph_eq:'रंग, थीम, स्टेज, लाइटिंग...',e_btn:'मेरा अनुरोध तैयार करें',e_ready:'आपका अनुरोध तैयार है। हमें WhatsApp पर भेजने के लिए टैप करें।',
+      r_submit:'समीक्षा भेजें',
       c_addr:'रावत टेंट हाउस, देवरिया रोड, कसया, कुशीनगर',c_phone:'फ़ोन और WhatsApp',c_map:'नक्शे में खोलें',foot:'देवरिया रोड, कसया, कुशीनगर · संस्थापक राजकुमार बारी'
     }
   };
@@ -660,23 +679,98 @@ footer .brand b{color:var(--text)}
     if(e.key==='ArrowRight')open(li+1);
   });
 
-  /* forms -> WhatsApp */
-  function wa(text){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(text)}
-  function v(id){return (document.getElementById(id).value||'').trim()}
-  document.getElementById('enqForm').addEventListener('submit',function(e){
+  /* messages */
+  var MSG={
+    en:{needName:'Please enter your name.',needPhone:'Please enter a valid 10-digit phone number.',needRate:'Please tap a star rating.',needMsg:'Please write a few words about your experience.',
+        sending:'Sending...',thanks:'Thank you! Your review is now live on this page.',fail:'Could not send your review. Check your internet and try again.',wait:'Please wait a minute before sending another review.',off:'Reviews are being set up. Please try again soon.',
+        one:'1 review',many:' reviews',submit:'Submit review'},
+    hi:{needName:'कृपया अपना नाम लिखें।',needPhone:'कृपया 10 अंकों का सही फ़ोन नंबर लिखें।',needRate:'कृपया स्टार रेटिंग चुनें।',needMsg:'कृपया अपने अनुभव के बारे में कुछ शब्द लिखें।',
+        sending:'भेज रहे हैं...',thanks:'धन्यवाद! आपकी समीक्षा इस पेज पर दिख रही है।',fail:'समीक्षा नहीं भेज सके। इंटरनेट जाँचकर फिर कोशिश करें।',wait:'दूसरी समीक्षा भेजने से पहले एक मिनट रुकें।',off:'समीक्षाएँ जल्द शुरू होंगी। कृपया थोड़ी देर बाद कोशिश करें।',
+        one:'1 समीक्षा',many:' समीक्षाएँ',submit:'समीक्षा भेजें'}
+  };
+  function m(k){return (MSG[lang]||MSG.en)[k]}
+  function el(id){return document.getElementById(id)}
+  function val(id){return (el(id).value||'').trim()}
+
+  /* enquiry -> WhatsApp (one tap) */
+  el('enqForm').addEventListener('submit',function(e){
     e.preventDefault();
+    var err=el('eqErr');err.hidden=true;
+    var name=val('eqName'),phone=val('eqPhone').replace(/\D/g,'');
+    if(!name){err.textContent=m('needName');err.hidden=false;el('eqName').focus();return}
+    if(phone.length<10){err.textContent=m('needPhone');err.hidden=false;el('eqPhone').focus();return}
     var t='Namaste, I want to book Rawat Tent House.\n'
-      +'Name: '+(v('eqName')||'-')+'\nPhone: '+(v('eqPhone')||'-')+'\nEvent: '+v('eqEvent')+'\nDate: '+(v('eqDate')||'-')
-      +'\nGuests: '+(v('eqGuests')||'-')+'\nVenue: '+(v('eqPlace')||'-')+'\nDetails: '+(v('eqMsg')||'-');
-    document.getElementById('eqLink').href=wa(t);
-    var s=document.getElementById('eqSent');s.hidden=false;s.scrollIntoView({block:'nearest',behavior:'smooth'});
+      +'Name: '+name+'\nPhone: '+val('eqPhone')+'\nEvent: '+val('eqEvent')+'\nDate: '+(val('eqDate')||'-')
+      +'\nGuests: '+(val('eqGuests')||'-')+'\nVenue: '+(val('eqPlace')||'-')+'\nDetails: '+(val('eqMsg')||'-');
+    var url='https://wa.me/'+WA+'?text='+encodeURIComponent(t);
+    var w=null;try{w=window.open(url,'_blank')}catch(x){}
+    if(w){try{w.opener=null}catch(x){}}else{window.location.href=url}
   });
-  document.getElementById('revForm').addEventListener('submit',function(e){
+
+  /* reviews: Google Sheet backend */
+  var list=el('revList'),empty=el('revEmpty'),all=[];
+  function stars(n){var r='';for(var i=1;i<=5;i++)r+=i<=n?'\u2605':'\u2606';return r}
+  function fmt(d){try{var x=new Date(d);if(isNaN(x))return '';return x.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})}catch(e){return ''}}
+  function card(r){
+    var c=document.createElement('article');c.className='rev';
+    var top=document.createElement('div');top.className='top';
+    var who=document.createElement('div');who.className='who';
+    who.appendChild(document.createTextNode(r.name));
+    var sm=document.createElement('small');sm.textContent=[r.event,fmt(r.date)].filter(Boolean).join(' \u00b7 ');who.appendChild(sm);
+    var st=document.createElement('span');st.className='st';st.textContent=stars(r.rating);st.setAttribute('aria-label',r.rating+' out of 5');
+    top.appendChild(who);top.appendChild(st);
+    var p=document.createElement('p');p.textContent=r.message;
+    c.appendChild(top);c.appendChild(p);return c;
+  }
+  function render(){
+    list.innerHTML='';
+    all.forEach(function(r){list.appendChild(card(r))});
+    empty.hidden=all.length>0;
+    var avg=el('revAvg');
+    if(all.length){
+      var sum=all.reduce(function(a,r){return a+r.rating},0)/all.length;
+      el('avgN').textContent=sum.toFixed(1);el('avgS').textContent=stars(Math.round(sum));
+      el('avgC').textContent=all.length===1?m('one'):all.length+m('many');avg.hidden=false;
+    }else{avg.hidden=true}
+  }
+  function clean(r){
+    var n=Math.round(Number(r.rating));
+    if(!r||!r.name||!r.message||!(n>=1&&n<=5))return null;
+    return {name:String(r.name).slice(0,60),event:String(r.event||'').slice(0,40),rating:n,message:String(r.message).slice(0,600),date:r.date||''};
+  }
+  function load(){
+    if(!REVIEWS_API)return;
+    fetch(REVIEWS_API).then(function(r){return r.json()}).then(function(d){
+      all=((d&&d.reviews)||[]).map(clean).filter(Boolean);render();
+    }).catch(function(){});
+  }
+  load();
+  var origSetLang=setLang;setLang=function(l){origSetLang(l);render()};
+  el('l-en').onclick=function(){setLang('en')};el('l-hi').onclick=function(){setLang('hi')};
+
+  el('revForm').addEventListener('submit',function(e){
     e.preventDefault();
+    var st=el('rvStatus');function say(t,ok){st.textContent=t;st.className='status '+(ok?'ok':'err');st.hidden=false}
+    if(val('rvWeb'))return;
     var r=document.querySelector('input[name=rate]:checked');
-    var t='Review for Rawat Tent House\nName: '+(v('rvName')||'-')+'\nEvent: '+v('rvEvent')+'\nRating: '+(r?r.value+'/5':'-')+'\nFeedback: '+(v('rvMsg')||'-');
-    document.getElementById('rvLink').href=wa(t);
-    var s=document.getElementById('rvSent');s.hidden=false;s.scrollIntoView({block:'nearest',behavior:'smooth'});
+    if(!val('rvName'))return say(m('needName'));
+    if(!r)return say(m('needRate'));
+    if(val('rvMsg').length<5)return say(m('needMsg'));
+    if(!REVIEWS_API)return say(m('off'));
+    try{var last=+localStorage.getItem('rth-lastrev')||0;if(Date.now()-last<60000)return say(m('wait'))}catch(x){}
+    var rec={name:val('rvName'),event:val('rvEvent'),rating:Number(r.value),message:val('rvMsg'),website:''};
+    var btn=el('rvBtn');btn.disabled=true;say(m('sending'),true);
+    fetch(REVIEWS_API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(rec)})
+      .then(function(x){return x.json()})
+      .then(function(d){
+        if(!d||!d.ok)throw new Error('bad');
+        var c=clean({name:rec.name,event:rec.event,rating:rec.rating,message:rec.message,date:new Date().toISOString()});
+        all.unshift(c);render();
+        try{localStorage.setItem('rth-lastrev',String(Date.now()))}catch(x){}
+        el('revForm').reset();say(m('thanks'),true);
+      })
+      .catch(function(){say(m('fail'))})
+      .then(function(){btn.disabled=false});
   });
 })();
 </script>
