@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Rawat Tent House</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Rawat Tent House, Deoria Road, Kasya, Kushinagar. Tents, mandaps, lighting and floral decor for weddings and events.">
+<meta name="theme-color" content="#0d0907">
+<link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Hanken+Grotesk:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&family=Noto+Serif+Devanagari:wght@500;600&display=swap">
+<style>
+body{margin:0}
+/* Layout: full-bleed photo reel hero with a glass info card, then glass sections floating over warm ambient glows. Single dark look by choice (frosted glass on near-black). */
+:root{
+  --ink:#0d0907;
+  --ink-2:#17100b;
+  --text:#f7efe2;
+  --muted:rgba(247,239,226,.68);
+  --gold:#e3b25a;
+  --gold-hi:#f7dc92;
+  --gold-lo:#a8741f;
+  --line:rgba(255,240,212,.16);
+  --glass-a:rgba(255,247,232,.11);
+  --glass-b:rgba(255,247,232,.04);
+  --shadow:rgba(0,0,0,.4);
+  --f-display:'Fraunces','Noto Serif Devanagari',Georgia,serif;
+  --f-body:'Hanken Grotesk','Noto Sans Devanagari',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --maxw:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0 96px;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.ambient{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(900px 600px at 8% 12%,rgba(176,52,110,.22),transparent 60%),
+  radial-gradient(800px 560px at 96% 40%,rgba(227,178,90,.16),transparent 60%),
+  radial-gradient(900px 700px at 20% 92%,rgba(40,120,128,.18),transparent 60%),var(--ink)}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto}
+section{padding-block:72px 8px;scroll-margin-top:84px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;max-width:640px}
+.sec-head h2{font-size:clamp(28px,4.6vw,44px)}
+.sec-head p{color:var(--muted)}
+
+.glass{
+  background:linear-gradient(180deg,var(--glass-a),var(--glass-b));
+  border:1px solid var(--line);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 24px 60px var(--shadow);
+  border-radius:26px;
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;
+  font:600 15px/1 var(--f-body);text-decoration:none;border:1px solid var(--line);cursor:pointer;color:var(--text);
+  background:linear-gradient(180deg,rgba(255,247,232,.16),rgba(255,247,232,.06));
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:transform .25s ease,background .25s ease,border-color .25s ease;
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,240,212,.4)}
+.btn.gold{color:#2a1a05;border-color:transparent;background:linear-gradient(180deg,var(--gold-hi),var(--gold) 55%,var(--gold-lo));box-shadow:0 10px 30px rgba(227,178,90,.28)}
+.btn.sm{min-height:38px;padding:0 16px;font-size:14px}
+
+/* nav */
+.nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:50;margin-top:10px}
+.nav-in{display:flex;align-items:center;gap:14px;padding:10px 12px 10px 16px;border-radius:999px;max-width:var(--maxw);margin-inline:auto}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand svg{width:38px;height:38px;flex:none}
+.brand b{font-family:var(--f-display);font-weight:600;font-size:19px;line-height:1;display:block;white-space:nowrap}
+.brand small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:3px;white-space:nowrap}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{font-size:14px;font-weight:500;text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:999px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:rgba(255,247,232,.08)}
+.nav-act{display:flex;align-items:center;gap:8px}
+.lang{display:inline-flex;padding:3px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.25)}
+.lang button{font:600 13px/1 var(--f-body);color:var(--muted);background:none;border:0;padding:8px 11px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{color:#2a1a05;background:linear-gradient(180deg,var(--gold-hi),var(--gold))}
+.menu-btn{display:none;width:40px;height:40px;border-radius:50%;padding:0}
+.menu-btn svg{width:18px;height:18px}
+.mobile-menu{display:none;margin-top:8px;padding:10px;flex-direction:column;border-radius:22px}
+.mobile-menu a{padding:12px 14px;text-decoration:none;border-radius:14px;font-weight:500}
+.mobile-menu a:hover{background:rgba(255,247,232,.08)}
+.mobile-menu.open{display:flex}
+
+/* hero */
+.hero{position:relative;margin-top:14px;border-radius:34px;overflow:hidden;min-height:660px;display:flex;align-items:flex-end;isolation:isolate;max-width:var(--maxw);margin-inline:auto;border:1px solid var(--line);padding:0}
+.reel{position:absolute;inset:0;z-index:-2}
+.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;transform:scale(1.02)}
+.reel img.on{opacity:1;animation:kb 9s ease-out forwards}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,9,7,.45) 0%,rgba(13,9,7,.25) 35%,rgba(13,9,7,.86) 100%),linear-gradient(90deg,rgba(13,9,7,.55),transparent 60%)}
+.hero-in{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:end;width:100%;padding:clamp(20px,4vw,44px)}
+.hero-copy{display:flex;flex-direction:column;gap:18px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy h1{font-size:clamp(36px,6.4vw,70px);max-width:15ch}
+.hero-copy p{font-size:clamp(16px,1.8vw,19px);color:rgba(247,239,226,.86);max-width:46ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-card{padding:22px;display:flex;flex-direction:column;gap:16px;animation:rise .9s .15s cubic-bezier(.2,.7,.2,1) both}
+.hero-card dl{margin:0;display:grid;gap:14px}
+.hero-card dt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hero-card dd{margin:2px 0 0;font-size:15px}
+.hero-card .price{font-family:var(--f-display);font-size:26px;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.dots{display:flex;gap:6px;margin-top:2px}
+.dots i{width:18px;height:3px;border-radius:3px;background:rgba(255,255,255,.28);transition:background .4s,width .4s}
+.dots i.on{background:var(--gold-hi);width:30px}
+@keyframes rise{from{transform:translateY(22px);filter:blur(6px)}to{transform:none;filter:none}}
+
+/* explore videos */
+.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vid{position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#000;cursor:pointer;padding:0;color:inherit;text-align:left;display:block;width:100%;box-shadow:0 24px 60px var(--shadow)}
+.vid video,.vid .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vid .cap{position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;z-index:2}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;background:rgba(20,13,8,.5);border:1px solid var(--line);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.vid .pp{position:absolute;right:12px;bottom:12px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;z-index:2;background:rgba(20,13,8,.5);border:1px solid var(--line);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.vid .pp svg{width:16px;height:16px;fill:currentColor}
+.vid .pp .i-pause{display:none}
+.vid.playing .pp .i-play{display:none}
+.vid.playing .pp .i-pause{display:block}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{position:relative;overflow:hidden;border-radius:26px;min-height:300px;display:flex;align-items:flex-end;border:1px solid var(--line);isolation:isolate}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s ease}
+.card:hover img{transform:scale(1.06)}
+.card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(13,9,7,.6))}
+.card .glass{margin:10px;padding:16px 18px;border-radius:20px;width:calc(100% - 20px);display:flex;flex-direction:column;gap:6px}
+.card h3{font-size:21px}
+.card p{font-size:14.5px;color:rgba(247,239,226,.82)}
+
+/* gallery */
+.gal{columns:3;column-gap:14px}
+.gal button{display:block;width:100%;margin:0 0 14px;padding:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:zoom-in;background:#000;break-inside:avoid}
+.gal img{width:100%;height:auto;transition:transform .7s ease,opacity .3s}
+.gal button:hover img{transform:scale(1.04)}
+.lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);background:rgba(8,5,3,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.lb.open{display:flex}
+.lb img{max-height:100%;max-width:100%;width:auto;border-radius:18px;box-shadow:0 30px 80px #000}
+.lb button{position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,247,232,.12);color:var(--text);font-size:22px;cursor:pointer}
+.lb .x{top:calc(env(safe-area-inset-top,0px) + 14px);right:14px}
+.lb .pv{left:14px;top:50%}.lb .nx{right:14px;top:50%}
+
+/* packages */
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.tier{padding:26px;display:flex;flex-direction:column;gap:16px}
+.tier.feat{border-color:rgba(247,220,146,.5);background:linear-gradient(180deg,rgba(227,178,90,.2),rgba(255,247,232,.05))}
+.tier .tag{align-self:flex-start}
+.tier h3{font-size:28px}
+.tier .for{color:var(--muted);font-size:14.5px}
+.tier .amt{font-family:var(--f-display);font-size:34px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+.tier .amt small{display:block;font-family:var(--f-body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600}
+.tier ul{list-style:none;margin:0;padding:14px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;font-size:15px;flex:1}
+.tier li{display:flex;gap:10px;align-items:flex-start}
+.tier li::before{content:"";flex:none;width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--gold)}
+.note{margin-top:18px;color:var(--muted);font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;counter-reset:s}
+.step{padding:20px;display:flex;flex-direction:column;gap:8px;counter-increment:s}
+.step::before{content:counter(s);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:600 15px var(--f-body);color:#2a1a05;background:linear-gradient(180deg,var(--gold-hi),var(--gold))}
+.step h3{font-size:18px}.step p{font-size:14.5px;color:var(--muted)}
+
+/* reviews + contact */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:16px}
+.panel h3{font-size:24px}
+.empty{padding:22px;border-radius:20px;border:1px dashed rgba(255,240,212,.3);display:flex;flex-direction:column;gap:8px;color:var(--muted)}
+.empty b{color:var(--text);font-family:var(--f-display);font-size:19px;font-weight:600}
+.stars{display:flex;gap:4px;flex-direction:row-reverse;justify-content:flex-end;border:0;margin:0;padding:0}
+.stars input{position:absolute;opacity:0;width:1px;height:1px}
+.stars label{font-size:30px;line-height:1;cursor:pointer;color:rgba(255,240,212,.28);transition:color .15s,transform .15s;padding:2px}
+.stars label:hover,.stars label:hover~label,.stars input:checked~label{color:var(--gold-hi)}
+.stars input:focus-visible+label{outline:2px solid var(--gold-hi);border-radius:8px}
+form{display:grid;gap:14px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.field legend{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+input[type=text],input[type=tel],input[type=date],input[type=number],select,textarea{
+  width:100%;font:400 16px var(--f-body);color:var(--text);padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.28);min-width:0}
+textarea{min-height:96px;resize:vertical}
+select option{background:#17100b;color:var(--text)}
+input::placeholder,textarea::placeholder{color:rgba(247,239,226,.4)}
+.sent{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:18px;background:rgba(227,178,90,.12);border:1px solid rgba(247,220,146,.35)}
+.info{display:grid;gap:18px}
+.info div b{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.info .num{font-family:var(--f-display);font-size:24px;font-variant-numeric:tabular-nums;font-weight:600;word-break:break-word}
+.info .num a{text-decoration:none}
+.numrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+footer{margin-top:80px;padding:28px 0 12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px;max-width:var(--maxw);margin-inline:auto}
+footer .brand b{color:var(--text)}
+
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;padding:10px max(16px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dock .glass{display:flex;gap:8px;padding:8px;border-radius:999px}
+.dock .btn{flex:1;min-height:44px;padding:0 10px;font-size:14px}
+
+.rv{transform:translateY(26px) scale(.985);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{transform:none}
+
+@media (max-width:980px){
+  .vids{grid-template-columns:repeat(4,minmax(230px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+  .vid{scroll-snap-align:start}
+  .svc,.pk{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .gal{columns:2}
+  .hero-in{grid-template-columns:1fr}
+  .hero{min-height:720px}
+  .two{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .menu-btn{display:grid}
+  .nav-act{margin-left:auto}
+}
+@media (max-width:640px){
+  .svc,.pk,.steps{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .vids{grid-template-columns:repeat(4,78%)}
+  .hero{border-radius:28px}
+  .nav-act .call-btn{display:none}
+  .brand b{font-size:17px}
+  .dock{display:block}
+  section{padding-top:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reel img.on{animation:none}
+  .hero-copy,.hero-card{animation:none}
+  .rv{transform:none;transition:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d98a"/><stop offset=".55" stop-color="#d9a441"/><stop offset="1" stop-color="#a8741f"/></linearGradient>
+    <symbol id="mark" viewBox="0 0 120 120">
+      <circle cx="60" cy="9" r="3.4" fill="url(#gg)"/>
+      <path d="M60 12 L112 54 H8 Z" fill="url(#gg)"/>
+      <g stroke="#2a1a05" stroke-opacity=".35" stroke-width="1.4"><path d="M60 14 L30 54"/><path d="M60 14 L50 54"/><path d="M60 14 L70 54"/><path d="M60 14 L90 54"/></g>
+      <path d="M8 54 a10.4 10.4 0 0 0 20.8 0 a10.4 10.4 0 0 0 20.8 0 a10.4 10.4 0 0 0 20.8 0 a10.4 10.4 0 0 0 20.8 0 a10.4 10.4 0 0 0 20.8 0 Z" fill="url(#gg)"/>
+      <g fill="url(#gg)"><rect x="16" y="62" width="4" height="44" rx="2"/><rect x="100" y="62" width="4" height="44" rx="2"/></g>
+      <path d="M40 106 V84 a20 20 0 0 1 40 0 V106" fill="none" stroke="url(#gg)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M10 108 H110" stroke="url(#gg)" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="nav-in glass">
+    <a class="brand" href="#top" aria-label="Rawat Tent House">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+      <span><b>Rawat Tent House</b><small data-i="brand_sub">Kasya · Kushinagar</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#explore" data-i="nav_explore">Explore</a>
+      <a href="#services" data-i="nav_services">Services</a>
+      <a href="#gallery" data-i="nav_gallery">Gallery</a>
+      <a href="#packages" data-i="nav_packages">Packages</a>
+      <a href="#reviews" data-i="nav_reviews">Reviews</a>
+      <a href="#contact" data-i="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-act">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="l-en" aria-pressed="true">EN</button>
+        <button type="button" id="l-hi" aria-pressed="false">हिं</button>
+      </div>
+      <a class="btn gold sm call-btn" href="tel:+919517166392" data-i="call">Call now</a>
+      <button class="btn menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu glass" id="mobileMenu">
+    <a href="#explore" data-i="nav_explore">Explore</a>
+    <a href="#services" data-i="nav_services">Services</a>
+    <a href="#gallery" data-i="nav_gallery">Gallery</a>
+    <a href="#packages" data-i="nav_packages">Packages</a>
+    <a href="#reviews" data-i="nav_reviews">Reviews</a>
+    <a href="#contact" data-i="nav_contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="reel" id="reel" aria-hidden="true">
+      <img class="on" src="img/p08.jpg" alt="">
+      <img src="img/p05.jpg" alt="" loading="lazy">
+      <img src="img/p00.jpg" alt="" loading="lazy">
+      <img src="img/p01.jpg" alt="" loading="lazy">
+      <img src="img/p07.jpg" alt="" loading="lazy">
+      <img src="img/p04.jpg" alt="" loading="lazy">
+      <img src="img/p06.jpg" alt="" loading="lazy">
+      <img src="img/p03.jpg" alt="" loading="lazy">
+      <img src="img/p02.jpg" alt="" loading="lazy">
+    </div>
+    <div class="hero-in">
+      <div class="hero-copy">
+        <span class="eyebrow" data-i="hero_eyebrow">Tent house · Kasya, Kushinagar</span>
+        <h1 data-i="hero_h">Every celebration deserves a grand setting.</h1>
+        <p data-i="hero_p">Tents, mandaps, lighting and floral décor for weddings, receptions and every family function.</p>
+        <div class="hero-cta">
+          <a class="btn gold" href="#contact" data-i="cta_quote">Get a free quote</a>
+          <a class="btn" href="#explore" data-i="cta_watch">Watch our work</a>
+        </div>
+      </div>
+      <aside class="hero-card glass" aria-label="Quick facts">
+        <dl>
+          <div><dt data-i="hc_price">Packages</dt><dd class="price">₹30,000 – ₹5,00,000</dd></div>
+          <div><dt data-i="hc_where">Find us</dt><dd data-i="hc_addr">Deoria Road, Kasya, Kushinagar</dd></div>
+          <div><dt data-i="hc_founder">Founder</dt><dd>Rajkumar Bari</dd></div>
+        </dl>
+        <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </aside>
+    </div>
+  </div>
+
+  <section id="explore" class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-i="ex_eyebrow">Explore</span>
+      <h2 data-i="ex_h">See the setup before you book</h2>
+      <p data-i="ex_p">Short films made from our own setups. Tap a film to play or pause.</p>
+    </div>
+    <div class="vids rv" id="vids">
+      <button class="vid" type="button" data-src="videos/showreel.mp4" data-poster="videos/showreel.jpg" aria-label="Play showreel">
+        <img class="poster" src="videos/showreel.jpg" alt="">
+        <div class="cap"><span class="chip" data-i="v1">Full showreel</span><span class="chip">0:23</span></div>
+        <span class="pp"><svg class="i-play" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg></span>
+      </button>
+      <button class="vid" type="button" data-src="videos/entrances.mp4" data-poster="videos/entrances.jpg" aria-label="Play entrances film">
+        <img class="poster" src="videos/entrances.jpg" alt="">
+        <div class="cap"><span class="chip" data-i="v2">Entrances &amp; gates</span><span class="chip">0:14</span></div>
+        <span class="pp"><svg class="i-play" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg></span>
+      </button>
+      <button class="vid" type="button" data-src="videos/ceilings.mp4" data-poster="videos/ceilings.jpg" aria-label="Play ceilings film">
+        <img class="poster" src="videos/ceilings.jpg" alt="">
+        <div class="cap"><span class="chip" data-i="v3">Ceilings &amp; canopies</span><span class="chip">0:14</span></div>
+        <span class="pp"><svg class="i-play" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg></span>
+      </button>
+      <button class="vid" type="button" data-src="videos/nights.mp4" data-poster="videos/nights.jpg" aria-label="Play evenings film">
+        <img class="poster" src="videos/nights.jpg" alt="">
+        <div class="cap"><span class="chip" data-i="v4">Lit-up evenings</span><span class="chip">0:14</span></div>
+        <span class="pp"><svg class="i-play" viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <section id="services" class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-i="sv_eyebrow">Services</span>
+      <h2 data-i="sv_h">Everything under one canopy</h2>
+      <p data-i="sv_p">One team for the tent, the stage, the lights and the flowers, so your function comes together in one go.</p>
+    </div>
+    <div class="svc">
+      <article class="card rv"><img src="img/p05.jpg" alt="Draped yellow and white tent ceiling with fairy lights" loading="lazy"><div class="glass"><h3 data-i="s1">Tents &amp; shamiana</h3><p data-i="s1p">Draped ceilings, strong frames and clean finishing for any crowd size.</p></div></article>
+      <article class="card rv"><img src="img/p00.jpg" alt="Floral entrance arch with red velvet drapes" loading="lazy"><div class="glass"><h3 data-i="s2">Entrance gates</h3><p data-i="s2p">Floral arches, velvet drapes and lit walkways that welcome your guests.</p></div></article>
+      <article class="card rv"><img src="img/p01.jpg" alt="Stage with lighting truss under a peach canopy" loading="lazy"><div class="glass"><h3 data-i="s3">Mandap &amp; stage</h3><p data-i="s3p">Stage, backdrop and seating built around your ceremony.</p></div></article>
+      <article class="card rv"><img src="img/p06.jpg" alt="Building front lit with fairy lights and drapes" loading="lazy"><div class="glass"><h3 data-i="s4">Lighting &amp; chandeliers</h3><p data-i="s4p">Fairy lights, chandeliers and colour washes that change the mood of the night.</p></div></article>
+      <article class="card rv"><img src="img/p07.jpg" alt="Hanging wisteria flowers over a white draped walkway" loading="lazy"><div class="glass"><h3 data-i="s5">Floral décor</h3><p data-i="s5p">Hanging blooms, pillar wraps and flowers for every table.</p></div></article>
+      <article class="card rv"><img src="img/p03.jpg" alt="Red carpet, covered chairs and chandeliers at a reception" loading="lazy"><div class="glass"><h3 data-i="s6">Carpets &amp; seating</h3><p data-i="s6p">Printed carpets, covered chairs and lounge sofas.</p></div></article>
+    </div>
+  </section>
+
+  <section id="gallery" class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-i="g_eyebrow">Gallery</span>
+      <h2 data-i="g_h">Recent setups</h2>
+      <p data-i="g_p">Tap any photo to see it full size.</p>
+    </div>
+    <div class="gal rv" id="gal">
+      <button type="button"><img src="img/p08.jpg" alt="Purple lit entrance with hanging flowers" loading="lazy"></button>
+      <button type="button"><img src="img/p02.jpg" alt="Red and gold ceiling with chandeliers" loading="lazy"></button>
+      <button type="button"><img src="img/p04.jpg" alt="Teal and yellow canopy over lounge seating" loading="lazy"></button>
+      <button type="button"><img src="img/p01.jpg" alt="Peach canopy with chandeliers at night" loading="lazy"></button>
+      <button type="button"><img src="img/p07.jpg" alt="Wisteria walkway in pink and white" loading="lazy"></button>
+      <button type="button"><img src="img/p06.jpg" alt="Lit building front with pink and yellow drapes" loading="lazy"></button>
+      <button type="button"><img src="img/p00.jpg" alt="Floral arch entrance" loading="lazy"></button>
+      <button type="button"><img src="img/p05.jpg" alt="Yellow and white draped ceiling" loading="lazy"></button>
+      <button type="button"><img src="img/p03.jpg" alt="Red themed reception setup" loading="lazy"></button>
+    </div>
+  </section>
+
+  <section id="packages" class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-i="p_eyebrow">Packages</span>
+      <h2 data-i="p_h">A package for every budget</h2>
+      <p data-i="p_p">Prices start at ₹30,000 and go up to ₹5,00,000 for full décor. The final price depends on your date, guest count and design.</p>
+    </div>
+    <div class="pk">
+      <article class="tier glass rv">
+        <span class="chip tag" data-i="t1tag">House functions</span>
+        <h3>Shubh</h3>
+        <div class="amt"><small data-i="from">Starting at</small>₹30,000</div>
+        <p class="for" data-i="t1for">For small gatherings and family functions.</p>
+        <ul><li data-i="t1a">Tent and shamiana cover</li><li data-i="t1b">Chairs and basic carpet</li><li data-i="t1c">Basic lighting</li></ul>
+      </article>
+      <article class="tier glass feat rv">
+        <span class="chip tag" data-i="t2tag">Most chosen for weddings</span>
+        <h3>Utsav</h3>
+        <div class="amt"><small data-i="from">Starting at</small>₹1,50,000</div>
+        <p class="for" data-i="t2for">For weddings and receptions.</p>
+        <ul><li data-i="t2a">Draped ceiling with fairy lights</li><li data-i="t2b">Entrance gate with flowers</li><li data-i="t2c">Stage and covered seating</li></ul>
+      </article>
+      <article class="tier glass rv">
+        <span class="chip tag" data-i="t3tag">Full custom décor</span>
+        <h3>Maharaja</h3>
+        <div class="amt"><small data-i="upto">Up to</small>₹5,00,000</div>
+        <p class="for" data-i="t3for">For grand weddings with a themed setup.</p>
+        <ul><li data-i="t3a">Chandeliers and hanging florals</li><li data-i="t3b">Lit entrance, stage and lounge</li><li data-i="t3c">Designed around your colours</li></ul>
+      </article>
+    </div>
+    <p class="note" data-i="p_note">What is included varies by date and venue. Call us for an exact quote.</p>
+
+    <div class="steps">
+      <div class="step glass rv"><h3 data-i="st1">Call or message us</h3><p data-i="st1p">Tell us the date and the type of function.</p></div>
+      <div class="step glass rv"><h3 data-i="st2">Share the details</h3><p data-i="st2p">Venue, number of guests and the look you like.</p></div>
+      <div class="step glass rv"><h3 data-i="st3">Choose and confirm</h3><p data-i="st3p">Pick a design, get a clear quote and book your date.</p></div>
+      <div class="step glass rv"><h3 data-i="st4">We set it up</h3><p data-i="st4p">Our team builds everything before your function.</p></div>
+    </div>
+  </section>
+
+  <section id="reviews" class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-i="r_eyebrow">Reviews</span>
+      <h2 data-i="r_h">What families say</h2>
+      <p data-i="r_p">Hosted an event with us? Your feedback helps the next family choose.</p>
+    </div>
+    <div class="two">
+      <div class="panel glass rv">
+        <h3 data-i="r_list">Customer reviews</h3>
+        <div class="empty" id="revEmpty">
+          <b data-i="r_empty_h">No reviews yet</b>
+          <span data-i="r_empty_p">Reviews from our customers will appear here. Be the first to share your experience.</span>
+        </div>
+      </div>
+      <div class="panel glass rv">
+        <h3 data-i="r_form">Share your feedback</h3>
+        <form id="revForm" novalidate>
+          <div class="row2">
+            <div class="field"><label for="rvName" data-i="f_name">Your name</label><input type="text" id="rvName" autocomplete="name" placeholder="Name"></div>
+            <div class="field"><label for="rvEvent" data-i="f_event">Event</label>
+              <select id="rvEvent"><option value="Wedding" data-i="o_wed">Wedding</option><option value="Reception" data-i="o_rec">Reception</option><option value="Engagement" data-i="o_eng">Engagement / Tilak</option><option value="Birthday" data-i="o_bday">Birthday</option><option value="Religious function" data-i="o_rel">Religious function</option><option value="Other" data-i="o_oth">Other</option></select>
+            </div>
+          </div>
+          <fieldset class="field stars-wrap" style="border:0;padding:0;margin:0">
+            <legend data-i="f_rating">Rating</legend>
+            <div class="stars" id="stars">
+              <input type="radio" name="rate" id="s5" value="5"><label for="s5" title="5">★</label>
+              <input type="radio" name="rate" id="s4" value="4"><label for="s4" title="4">★</label>
+              <input type="radio" name="rate" id="s3" value="3"><label for="s3" title="3">★</label>
+              <input type="radio" name="rate" id="s2" value="2"><label for="s2" title="2">★</label>
+              <input type="radio" name="rate" id="s1" value="1"><label for="s1" title="1">★</label>
+            </div>
+          </fieldset>
+          <div class="field"><label for="rvMsg" data-i="f_msg">Your experience</label><textarea id="rvMsg" data-i-ph="ph_rv" placeholder="How was the setup, the team and the timing?"></textarea></div>
+          <button class="btn gold" type="submit" data-i="r_btn">Prepare my review</button>
+          <div class="sent" id="rvSent" hidden>
+            <span data-i="r_ready">Your review is ready. Tap to send it to us on WhatsApp.</span>
+            <a class="btn" id="rvLink" href="#" target="_blank" rel="noopener" data-i="wa_send">Send on WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow" data-i="c_eyebrow">Contact</span>
+      <h2 data-i="c_h">Plan your event with us</h2>
+      <p data-i="c_p">Fill in the details and send them on WhatsApp, or call us directly.</p>
+    </div>
+    <div class="two">
+      <div class="panel glass rv">
+        <form id="enqForm" novalidate>
+          <div class="row2">
+            <div class="field"><label for="eqName" data-i="f_name">Your name</label><input type="text" id="eqName" autocomplete="name" placeholder="Name"></div>
+            <div class="field"><label for="eqPhone" data-i="f_phone">Phone</label><input type="tel" id="eqPhone" autocomplete="tel" inputmode="tel" placeholder="98xxxxxxxx"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="eqEvent" data-i="f_event">Event</label>
+              <select id="eqEvent"><option value="Wedding" data-i="o_wed">Wedding</option><option value="Reception" data-i="o_rec">Reception</option><option value="Engagement" data-i="o_eng">Engagement / Tilak</option><option value="Birthday" data-i="o_bday">Birthday</option><option value="Religious function" data-i="o_rel">Religious function</option><option value="Other" data-i="o_oth">Other</option></select>
+            </div>
+            <div class="field"><label for="eqDate" data-i="f_date">Event date</label><input type="date" id="eqDate"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="eqGuests" data-i="f_guests">Guests (approx.)</label><input type="number" id="eqGuests" min="1" inputmode="numeric" placeholder="300"></div>
+            <div class="field"><label for="eqPlace" data-i="f_place">Venue / village</label><input type="text" id="eqPlace" placeholder="Kasya"></div>
+          </div>
+          <div class="field"><label for="eqMsg" data-i="f_more">Anything else</label><textarea id="eqMsg" data-i-ph="ph_eq" placeholder="Colours, theme, stage, lighting..."></textarea></div>
+          <button class="btn gold" type="submit" data-i="e_btn">Prepare my enquiry</button>
+          <div class="sent" id="eqSent" hidden>
+            <span data-i="e_ready">Your enquiry is ready. Tap to send it to us on WhatsApp.</span>
+            <a class="btn" id="eqLink" href="#" target="_blank" rel="noopener" data-i="wa_send">Send on WhatsApp</a>
+          </div>
+        </form>
+      </div>
+      <div class="panel glass rv">
+        <div class="info">
+          <div><b data-i="hc_where">Find us</b><span data-i="c_addr">Rawat Tent House, Deoria Road, Kasya, Kushinagar</span></div>
+          <div><b data-i="hc_founder">Founder</b><span>Rajkumar Bari</span></div>
+          <div>
+            <b data-i="c_phone">Phone &amp; WhatsApp</b>
+            <div class="num"><a href="tel:+919517166392">9517166392</a></div>
+            <div class="num"><a href="tel:+919517166391">9517166391</a></div>
+          </div>
+          <div class="numrow">
+            <a class="btn gold" href="https://wa.me/919517166392?text=Namaste%2C%20I%20want%20to%20know%20about%20Rawat%20Tent%20House%20packages." target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Rawat+Tent+House+Deoria+Road+Kasya+Kushinagar" target="_blank" rel="noopener" data-i="c_map">Open in Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="brand" href="#top"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg><span><b>Rawat Tent House</b><small data-i="brand_sub">Kasya · Kushinagar</small></span></a>
+  <span data-i="foot">Deoria Road, Kasya, Kushinagar · Founder Rajkumar Bari</span>
+</footer>
+
+<div class="dock" aria-label="Quick contact">
+  <div class="glass">
+    <a class="btn gold" href="tel:+919517166392" data-i="call">Call now</a>
+    <a class="btn" href="https://wa.me/919517166392?text=Namaste%2C%20I%20want%20to%20know%20about%20Rawat%20Tent%20House%20packages." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="x" type="button" id="lbX" aria-label="Close">×</button>
+  <button class="pv" type="button" id="lbP" aria-label="Previous">‹</button>
+  <img id="lbImg" alt="">
+  <button class="nx" type="button" id="lbN" aria-label="Next">›</button>
+</div>
+
+<script>
+(function(){
+  var WA='919517166392';
+  var T={
+    en:{},
+    hi:{
+      brand_sub:'कसया · कुशीनगर',nav_explore:'देखें',nav_services:'सेवाएँ',nav_gallery:'गैलरी',nav_packages:'पैकेज',nav_reviews:'समीक्षाएँ',nav_contact:'संपर्क',call:'अभी कॉल करें',
+      hero_eyebrow:'टेंट हाउस · कसया, कुशीनगर',hero_h:'हर उत्सव के लिए एक भव्य सजावट।',hero_p:'शादी, रिसेप्शन और हर पारिवारिक समारोह के लिए टेंट, मंडप, लाइटिंग और फूलों की सजावट।',
+      cta_quote:'मुफ़्त कोटेशन पाएँ',cta_watch:'हमारा काम देखें',hc_price:'पैकेज',hc_where:'पता',hc_addr:'देवरिया रोड, कसया, कुशीनगर',hc_founder:'संस्थापक',
+      ex_eyebrow:'देखें',ex_h:'बुक करने से पहले सजावट देखें',ex_p:'हमारी अपनी सजावट से बनी छोटी फ़िल्में। चलाने या रोकने के लिए फ़िल्म पर टैप करें।',
+      v1:'पूरी झलक',v2:'प्रवेश द्वार',v3:'छत और शामियाना',v4:'रोशन शामें',
+      sv_eyebrow:'सेवाएँ',sv_h:'सब कुछ एक ही छत के नीचे',sv_p:'टेंट, स्टेज, लाइट और फूल, सब एक ही टीम से, ताकि आपका समारोह एक साथ तैयार हो जाए।',
+      s1:'टेंट और शामियाना',s1p:'हर भीड़ के लिए सजी हुई छत, मज़बूत ढाँचा और साफ़ फिनिशिंग।',
+      s2:'प्रवेश द्वार',s2p:'फूलों के द्वार, मखमली पर्दे और रोशन रास्ते जो मेहमानों का स्वागत करें।',
+      s3:'मंडप और स्टेज',s3p:'आपकी रस्मों के हिसाब से स्टेज, बैकड्रॉप और बैठने की व्यवस्था।',
+      s4:'लाइटिंग और झूमर',s4p:'फेयरी लाइट, झूमर और रंगीन रोशनी जो शाम का माहौल बदल दें।',
+      s5:'फूलों की सजावट',s5p:'लटकते फूल, खंभों की सजावट और हर टेबल के फूल।',
+      s6:'कारपेट और बैठक',s6p:'डिज़ाइनर कारपेट, कवर वाली कुर्सियाँ और सोफ़े।',
+      g_eyebrow:'गैलरी',g_h:'हाल की सजावट',g_p:'बड़ा देखने के लिए किसी भी फ़ोटो पर टैप करें।',
+      p_eyebrow:'पैकेज',p_h:'हर बजट के लिए पैकेज',p_p:'पैकेज ₹30,000 से शुरू होकर पूरी सजावट के लिए ₹5,00,000 तक जाते हैं। अंतिम कीमत तारीख, मेहमानों की संख्या और डिज़ाइन पर निर्भर करती है।',
+      from:'शुरुआत',upto:'अधिकतम',
+      t1tag:'घरेलू समारोह',t1for:'छोटे आयोजनों और पारिवारिक समारोहों के लिए।',t1a:'टेंट और शामियाना',t1b:'कुर्सियाँ और सादा कारपेट',t1c:'सादी लाइटिंग',
+      t2tag:'शादियों के लिए सबसे पसंदीदा',t2for:'शादी और रिसेप्शन के लिए।',t2a:'फेयरी लाइट वाली सजी छत',t2b:'फूलों वाला प्रवेश द्वार',t2c:'स्टेज और कवर वाली कुर्सियाँ',
+      t3tag:'पूरी कस्टम सजावट',t3for:'थीम वाली भव्य शादी के लिए।',t3a:'झूमर और लटकते फूल',t3b:'रोशन द्वार, स्टेज और लाउंज',t3c:'आपके रंगों के हिसाब से डिज़ाइन',
+      p_note:'क्या-क्या शामिल है, यह तारीख और जगह के अनुसार बदलता है। सही कोटेशन के लिए हमें कॉल करें।',
+      st1:'कॉल या मैसेज करें',st1p:'तारीख और समारोह का प्रकार बताएँ।',st2:'जानकारी दें',st2p:'जगह, मेहमानों की संख्या और पसंद का लुक।',st3:'चुनें और पक्का करें',st3p:'डिज़ाइन चुनें, साफ़ कोटेशन पाएँ और तारीख बुक करें।',st4:'हम सजावट करते हैं',st4p:'आपके समारोह से पहले हमारी टीम सब कुछ तैयार करती है।',
+      r_eyebrow:'समीक्षाएँ',r_h:'परिवार क्या कहते हैं',r_p:'हमारे साथ समारोह किया है? आपकी राय अगले परिवार को चुनने में मदद करेगी।',
+      r_list:'ग्राहकों की समीक्षाएँ',r_empty_h:'अभी कोई समीक्षा नहीं',r_empty_p:'हमारे ग्राहकों की समीक्षाएँ यहाँ दिखेंगी। अपना अनुभव सबसे पहले साझा करें।',
+      r_form:'अपनी राय दें',f_name:'आपका नाम',f_event:'समारोह',f_rating:'रेटिंग',f_msg:'आपका अनुभव',ph_rv:'सजावट, टीम और समय कैसा रहा?',r_btn:'मेरी समीक्षा तैयार करें',r_ready:'आपकी समीक्षा तैयार है। हमें WhatsApp पर भेजने के लिए टैप करें।',wa_send:'WhatsApp पर भेजें',
+      o_wed:'शादी',o_rec:'रिसेप्शन',o_eng:'सगाई / तिलक',o_bday:'जन्मदिन',o_rel:'धार्मिक आयोजन',o_oth:'अन्य',
+      c_eyebrow:'संपर्क',c_h:'अपना समारोह हमारे साथ तय करें',c_p:'जानकारी भरकर WhatsApp पर भेजें, या सीधे हमें कॉल करें।',
+      f_phone:'फ़ोन',f_date:'समारोह की तारीख',f_guests:'मेहमान (लगभग)',f_place:'जगह / गाँव',f_more:'कुछ और',ph_eq:'रंग, थीम, स्टेज, लाइटिंग...',e_btn:'मेरा अनुरोध तैयार करें',e_ready:'आपका अनुरोध तैयार है। हमें WhatsApp पर भेजने के लिए टैप करें।',
+      c_addr:'रावत टेंट हाउस, देवरिया रोड, कसया, कुशीनगर',c_phone:'फ़ोन और WhatsApp',c_map:'नक्शे में खोलें',foot:'देवरिया रोड, कसया, कुशीनगर · संस्थापक राजकुमार बारी'
+    }
+  };
+  var els=[].slice.call(document.querySelectorAll('[data-i]'));
+  var phs=[].slice.call(document.querySelectorAll('[data-i-ph]'));
+  els.forEach(function(e){e.setAttribute('data-en',e.innerHTML)});
+  phs.forEach(function(e){e.setAttribute('data-en-ph',e.getAttribute('placeholder'))});
+  var lang='en';
+  function setLang(l){
+    lang=l;
+    document.documentElement.lang=l==='hi'?'hi':'en';
+    els.forEach(function(e){var k=e.getAttribute('data-i');e.innerHTML=(l==='hi'&&T.hi[k])?T.hi[k]:e.getAttribute('data-en')});
+    phs.forEach(function(e){var k=e.getAttribute('data-i-ph');e.setAttribute('placeholder',(l==='hi'&&T.hi[k])?T.hi[k]:e.getAttribute('data-en-ph'))});
+    document.getElementById('l-en').setAttribute('aria-pressed',l==='en');
+    document.getElementById('l-hi').setAttribute('aria-pressed',l==='hi');
+    try{localStorage.setItem('rth-lang',l)}catch(e){}
+  }
+  document.getElementById('l-en').onclick=function(){setLang('en')};
+  document.getElementById('l-hi').onclick=function(){setLang('hi')};
+  try{var s=localStorage.getItem('rth-lang');if(s==='hi')setLang('hi')}catch(e){}
+
+  /* menu */
+  var mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu');
+  mb.onclick=function(){var o=mm.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+  mm.addEventListener('click',function(e){if(e.target.tagName==='A'){mm.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+
+  /* hero reel */
+  var slides=[].slice.call(document.querySelectorAll('#reel img')),dots=[].slice.call(document.querySelectorAll('#dots i')),cur=0;
+  function show(n){
+    slides[cur].classList.remove('on');dots[cur].classList.remove('on');
+    cur=n;
+    slides[cur].classList.add('on');dots[cur].classList.add('on');
+  }
+  setInterval(function(){if(!document.hidden)show((cur+1)%slides.length)},5200);
+
+  /* reveal */
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+    rv.forEach(function(e){io.observe(e)});
+  }else{rv.forEach(function(e){e.classList.add('in')})}
+
+  /* videos */
+  var vids=[].slice.call(document.querySelectorAll('.vid'));
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function ensure(v){
+    if(v._v)return v._v;
+    var el=document.createElement('video');
+    el.muted=true;el.loop=true;el.playsInline=true;el.setAttribute('playsinline','');el.preload='metadata';
+    el.poster=v.getAttribute('data-poster');el.src=v.getAttribute('data-src');
+    el.addEventListener('error',function(){v._bad=true;el.remove();v.classList.remove('playing')});
+    v.insertBefore(el,v.querySelector('.cap'));
+    var p=v.querySelector('.poster');if(p)p.style.visibility='hidden';
+    el.addEventListener('playing',function(){v.classList.add('playing')});
+    el.addEventListener('pause',function(){v.classList.remove('playing')});
+    v._v=el;return el;
+  }
+  function play(v){var el=ensure(v);var pr=el.play();if(pr&&pr.catch)pr.catch(function(){})}
+  vids.forEach(function(v){
+    v.addEventListener('click',function(){
+      var el=ensure(v);
+      if(el.paused){vids.forEach(function(o){if(o!==v&&o._v)o._v.pause()});play(v);v._manual=true}
+      else{el.pause();v._manual=false}
+    });
+  });
+  if('IntersectionObserver' in window&&!reduce){
+    var vo=new IntersectionObserver(function(es){es.forEach(function(e){
+      var v=e.target;
+      if(e.isIntersecting&&e.intersectionRatio>.6){if(!v._manual){play(v)}}
+      else if(v._v){v._v.pause()}
+    })},{threshold:[0,.6]});
+    vids.forEach(function(v){vo.observe(v)});
+  }
+
+  /* lightbox */
+  var gal=[].slice.call(document.querySelectorAll('#gal img')),lb=document.getElementById('lb'),lbi=document.getElementById('lbImg'),li=0;
+  function open(i){li=(i+gal.length)%gal.length;lbi.src=gal[li].src;lbi.alt=gal[li].alt;lb.classList.add('open')}
+  gal.forEach(function(g,i){g.parentNode.onclick=function(){open(i)}});
+  document.getElementById('lbX').onclick=function(){lb.classList.remove('open')};
+  document.getElementById('lbP').onclick=function(e){e.stopPropagation();open(li-1)};
+  document.getElementById('lbN').onclick=function(e){e.stopPropagation();open(li+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')lb.classList.remove('open');
+    if(e.key==='ArrowLeft')open(li-1);
+    if(e.key==='ArrowRight')open(li+1);
+  });
+
+  /* forms -> WhatsApp */
+  function wa(text){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(text)}
+  function v(id){return (document.getElementById(id).value||'').trim()}
+  document.getElementById('enqForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var t='Namaste, I want to book Rawat Tent House.\n'
+      +'Name: '+(v('eqName')||'-')+'\nPhone: '+(v('eqPhone')||'-')+'\nEvent: '+v('eqEvent')+'\nDate: '+(v('eqDate')||'-')
+      +'\nGuests: '+(v('eqGuests')||'-')+'\nVenue: '+(v('eqPlace')||'-')+'\nDetails: '+(v('eqMsg')||'-');
+    document.getElementById('eqLink').href=wa(t);
+    var s=document.getElementById('eqSent');s.hidden=false;s.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+  document.getElementById('revForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var r=document.querySelector('input[name=rate]:checked');
+    var t='Review for Rawat Tent House\nName: '+(v('rvName')||'-')+'\nEvent: '+v('rvEvent')+'\nRating: '+(r?r.value+'/5':'-')+'\nFeedback: '+(v('rvMsg')||'-');
+    document.getElementById('rvLink').href=wa(t);
+    var s=document.getElementById('rvSent');s.hidden=false;s.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
