@@ -178,6 +178,21 @@ section{padding-block:72px 8px;scroll-margin-top:84px}
 .status.err{background:rgba(194,56,93,.16);border-color:rgba(255,140,170,.4)}
 .btn[disabled]{opacity:.6;cursor:progress}
 .btn svg{width:18px;height:18px;fill:currentColor;flex:none}
+
+.fdr{display:flex;gap:14px;align-items:center}
+.av{flex:none;width:56px;height:56px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.4);background:#000}
+.av img{width:100%;height:100%;object-fit:cover;transform:scale(3.3);transform-origin:50% 7%}
+.founder{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(20px,3.5vw,40px)}
+.fpic{position:relative;border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:2/3;max-width:380px;width:100%;border:1px solid rgba(247,220,146,.45);box-shadow:0 0 0 8px rgba(227,178,90,.08),0 30px 70px rgba(0,0,0,.5);isolation:isolate;justify-self:center}
+.fpic img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:saturate(1.06) contrast(1.03)}
+.fpic::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(13,9,7,0) 55%,rgba(13,9,7,.55) 100%),radial-gradient(120% 80% at 50% 0%,transparent 60%,rgba(60,30,10,.25))}
+.fpic .tag{position:absolute;z-index:2;left:50%;bottom:16px;transform:translateX(-50%);white-space:nowrap}
+.fcopy{display:flex;flex-direction:column;gap:18px;min-width:0}
+.fcopy h2{font-size:clamp(34px,5.6vw,60px)}
+.fcopy p{color:rgba(247,239,226,.82);font-size:clamp(16px,1.7vw,18px);max-width:48ch}
+.fcopy .sign{font-family:var(--f-display);font-size:22px;color:var(--gold-hi)}
+.fcopy .sign small{display:block;font:600 11px var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+@media (max-width:760px){.founder{grid-template-columns:1fr}.fcopy{align-items:flex-start}}
 .note{margin-top:18px;color:var(--muted);font-size:14px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;counter-reset:s}
 .step{padding:20px;display:flex;flex-direction:column;gap:8px;counter-increment:s}
@@ -334,12 +349,31 @@ footer .brand b{color:var(--text)}
         <dl>
           <div><dt data-i="hc_price">Packages</dt><dd class="price">₹30,000 – ₹5,00,000</dd></div>
           <div><dt data-i="hc_where">Find us</dt><dd data-i="hc_addr">Deoria Road, Kasya, Kushinagar</dd></div>
-          <div><dt data-i="hc_founder">Founder</dt><dd>Rajkumar Bari</dd></div>
+          <div class="fdr"><span class="av"><img src="founder.jpg" alt="Rajkumar Bari, founder of Rawat Tent House"></span><div><dt data-i="hc_founder">Founder</dt><dd data-i="fd_name">Rajkumar Bari</dd></div></div>
         </dl>
         <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </aside>
     </div>
   </div>
+
+  <section id="founder" class="wrap">
+    <div class="founder glass rv">
+      <div class="fpic">
+        <img src="founder.jpg" alt="Rajkumar Bari, founder of Rawat Tent House" width="840" height="1260">
+        <span class="chip tag"><span data-i="fd_name">Rajkumar Bari</span> &middot; <span data-i="hc_founder">Founder</span></span>
+      </div>
+      <div class="fcopy">
+        <span class="eyebrow" data-i="fd_eyebrow">Meet the founder</span>
+        <h2 data-i="fd_name">Rajkumar Bari</h2>
+        <p data-i="fd_p">Founder of Rawat Tent House, Deoria Road, Kasya. Talk to him directly about your date, your venue and the look you want for your function.</p>
+        <div class="sign">Rawat Tent House<small data-i="brand_sub">Kasya · Kushinagar</small></div>
+        <div class="hero-cta">
+          <a class="btn gold" href="tel:+919517166392" data-i="fd_call">Call Rajkumar</a>
+          <a class="btn" href="https://wa.me/919517166392?text=Namaste%20Rajkumar%20ji%2C%20I%20want%20to%20book%20Rawat%20Tent%20House." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="explore" class="wrap">
     <div class="sec-head rv">
@@ -590,6 +624,7 @@ footer .brand b{color:var(--text)}
       c_eyebrow:'संपर्क',c_h:'अपना समारोह हमारे साथ तय करें',c_p:'जानकारी भरकर WhatsApp पर भेजें, या सीधे हमें कॉल करें।',
       f_phone:'फ़ोन',f_date:'समारोह की तारीख',f_guests:'मेहमान (लगभग)',f_place:'जगह / गाँव',f_more:'कुछ और',ph_eq:'रंग, थीम, स्टेज, लाइटिंग...',e_btn:'मेरा अनुरोध तैयार करें',e_ready:'आपका अनुरोध तैयार है। हमें WhatsApp पर भेजने के लिए टैप करें।',
       r_submit:'समीक्षा भेजें',
+      fd_name:'राजकुमार बारी',fd_eyebrow:'संस्थापक से मिलिए',fd_p:'रावत टेंट हाउस, देवरिया रोड, कसया के संस्थापक। अपनी तारीख, जगह और पसंद का लुक सीधे उनसे बात करके तय करें।',fd_call:'राजकुमार जी को कॉल करें',
       c_addr:'रावत टेंट हाउस, देवरिया रोड, कसया, कुशीनगर',c_phone:'फ़ोन और WhatsApp',c_map:'नक्शे में खोलें',foot:'देवरिया रोड, कसया, कुशीनगर · संस्थापक राजकुमार बारी'
     }
   };
